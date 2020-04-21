@@ -1,0 +1,15 @@
+node_modules
+
+npm-debug.log
+
+.nuxt
+build
+dist
+
+.idea
+.vscode
+.env
+
+yarn-error.log
+
+sw.*

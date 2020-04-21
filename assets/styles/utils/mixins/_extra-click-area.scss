@@ -1,0 +1,5 @@
+@mixin extra-click-area ($area: 10px) {
+  box-sizing: content-box;
+  padding: $area;
+  margin: -$area;
+}

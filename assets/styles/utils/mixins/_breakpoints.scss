@@ -1,0 +1,117 @@
+// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+// Makes the @content apply to the given breakpoint and wider.
+@mixin respUp($name, $landscape: false, $breakpoints: $breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+
+  @if $min and $landscape {
+    @media (min-width: #{$min}px) and (orientation: landscape) {
+      @content;
+    }
+  }
+
+  @else if $min {
+    @media (min-width: #{$min}px) {
+      @content;
+    }
+  }
+
+  @else {
+    @content;
+  }
+}
+
+// Media of at most the maximum breakpoint width. No query for the largest breakpoint.
+// Makes the @content apply to the given breakpoint and narrower.
+@mixin respDown($name, $landscape: false, $breakpoints: $breakpoints) {
+  $max: breakpoint-max($name, $breakpoints);
+
+  @if $max and $landscape {
+    @media (max-width: #{$max}px) and (orientation: landscape) {
+      @content;
+    }
+  }
+
+  @else if $max {
+    @media (max-width: #{$max}px) {
+      @content;
+    }
+  }
+
+  @else {
+    @content;
+  }
+}
+
+// Media that spans multiple breakpoint widths.
+// Makes the @content apply between the min and max breakpoints
+@mixin respBetween(
+  $lower,
+  $upper,
+  $landscape: false,
+  $breakpoints: $breakpoints
+) {
+  $min: breakpoint-min($lower, $breakpoints);
+  $max: breakpoint-max($upper, $breakpoints);
+
+  @if $min != null and $max != null {
+    @media (min-width: #{$min}px) and (max-width: #{$max}px) and (orientation: landscape) {
+      @content;
+    }
+  }
+
+  @else if $max == null {
+    @include respUp($lower, $landscape, $breakpoints) {
+      @content;
+    }
+  }
+
+  @else if $min == null {
+    @include respDown($upper, $landscape, $breakpoints) {
+      @content;
+    }
+  }
+}
+
+// Media between the breakpoint's minimum and maximum widths.
+// No minimum for the smallest breakpoint, and no maximum for the largest one.
+// Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
+@mixin respOnly($name, $landscape: false, $breakpoints: $breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  $max: breakpoint-max($name, $breakpoints);
+
+  @if $min != null and $max != null and $landscape {
+    @media (min-width: #{$min}px) and (max-width: #{$max}px) and (orientation: landscape) {
+      @content;
+    }
+  }
+
+  @else if $min != null and $max != null {
+    @media (min-width: #{$min}px) and (max-width: #{$max}px) {
+      @content;
+    }
+  }
+
+  @else if $max == null {
+    @include respUp($name, $landscape, $breakpoints) {
+      @content;
+    }
+  }
+
+  @else if $min == null {
+    @include respDown($name, $landscape, $breakpoints) {
+      @content;
+    }
+  }
+}
+
+@mixin mobileLandscape () {
+  @media (max-height: 414px) and (max-width: 896px) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin mobileXs () {
+  @media (max-width: 400px) {
+    @content;
+  }
+}

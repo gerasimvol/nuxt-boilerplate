@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html {{ HTML_ATTRS }}>
+  <head>
+    <!-- FAVICON -->
+    <!-- Generate with https://realfavicongenerator.net/ and paste here -->
+    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+
+    <!-- POLYFILLS (loads only if required) add to query if new needed-->
+    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?flags=gated&features=IntersectionObserver%2CIntersectionObserverEntry%2CObject.assign%2CObject.entries%2CArray.prototype.includes%2CArray.prototype.find%2CString.prototype.includes%2CMutationObserver"></script>
+
+    <!-- PRELOADER files (loads before nuxt and hides components mount) -->
+    <link rel="stylesheet" type="text/css" href="/preloader/preloader.css">
+    <script src="/preloader/preloader.js" defer></script>
+
+    <!-- TAGS FROM '~/nuxt-config/_head' & '~/mixins/seo-mixin' -->
+    {{ HEAD }}
+  </head>
+
+  <body {{ BODY_ATTRS }}>
+    <!--Preloader must be first-->
+    <div class="preloader">
+      <div class="preloader__text-wrapper">
+        <div class="preloader__text">
+          vintage-nuxt-starter
+        </div>
+      </div>
+    </div>
+
+    <!--App instance-->
+    {{ APP }}
+
+    <!--Modals container-->
+    <div id="modals-container"></div>
+  </body>
+</html>

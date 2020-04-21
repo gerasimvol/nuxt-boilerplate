@@ -1,0 +1,49 @@
+{
+  "id": "homepage",
+  "meta": {
+    "seo": {
+      "title": "homepage title en",
+      "description": "Page description",
+      "og": {
+        "title":  "OpenGraph Title",
+        "description":  "OpenGraph Title",
+        "image": "https://site.com/storage/og.png"
+      },
+      "breadcrumbs": [
+        {"label": "Main", "url": "/"},
+        {"label": "About", "url": "/about"},
+        {"label": "Special Offers"}
+      ],
+      "robots": "index,follow"
+    },
+    "locales": [
+      {
+        "label": "EN",
+        "code": "en",
+        "default": false,
+        "current": true,
+        "url": "http://localhost:3030/en/"
+      },
+      {
+        "label": "UA",
+        "code": "uk",
+        "default": true,
+        "current": false,
+        "url": "http://localhost:3030/"
+      }
+    ]
+  },
+  "blocks": [
+    {
+      "id": "BlockDemo",
+      "level": 2,
+      "attributes": {
+        "title": "homepage",
+        "link": {
+          "label": "adssad",
+          "url": "/asd"
+        }
+      }
+    }
+  ]
+}

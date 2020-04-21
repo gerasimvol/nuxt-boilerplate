@@ -1,0 +1,40 @@
+html,
+body {
+  height: 100%;
+  background: $c-white;
+}
+
+#__nuxt,
+#__layout {
+  height: 1px;
+  min-height: 100%;
+}
+
+.layout {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  @extend #__layout;
+}
+
+.page-content {
+  // for sticky footer
+  &-wrapper {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  // to make possible section flex: 1; (full-height)
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.footer,
+.header {
+  flex-shrink: 0;
+}

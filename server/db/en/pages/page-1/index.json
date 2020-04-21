@@ -1,0 +1,45 @@
+{
+  "id": "page-1",
+  "meta": {
+    "seo": {
+      "title": "page-1 title en",
+      "description": "Page description",
+      "og": {
+        "title":  "OpenGraph Title 1",
+        "description":  "OpenGraph Title",
+        "image": "https://site.com/storage/og.png"
+      },
+      "breadcrumbs": [
+        {"label": "Main1", "url": "/"},
+        {"label": "About", "url": "/about"},
+        {"label": "Special Offers"}
+      ],
+      "robots": "index,follow"
+    },
+    "locales": [
+      {
+        "label": "EN",
+        "code": "en",
+        "default": false,
+        "current": true,
+        "url": "http://localhost:3030/en/page-1"
+      },
+      {
+        "label": "UA",
+        "code": "uk",
+        "default": true,
+        "current": false,
+        "url": "http://localhost:3030/page-1"
+      }
+    ]
+  },
+  "blocks": [
+    {
+      "id": "BlockDemo",
+      "level": 2,
+      "attributes": {
+        "title": "page-1"
+      }
+    }
+  ]
+}

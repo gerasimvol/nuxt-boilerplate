@@ -1,0 +1,19 @@
+@mixin heightVh($value: 100) {
+  height: #{$value * 1vh};
+  height: calc(var(--vh, 1vh) * #{$value});
+}
+
+@mixin heightVhStatic($value: 100) {
+  height: #{$value * 1vh};
+  height: calc(var(--vh-static, 1vh) * #{$value});
+}
+
+@mixin minHeightVh($value: 100) {
+  min-height: #{$value * 1vh};
+  min-height: calc(var(--vh, 1vh) * #{$value});
+}
+
+@mixin minHeightVhStatic($value: 100) {
+  min-height: #{$value * 1vh};
+  min-height: calc(var(--vh-static, 1vh) * #{$value});
+}
