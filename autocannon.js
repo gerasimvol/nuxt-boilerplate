@@ -1,4 +1,7 @@
 /* eslint-disable */
+
+// Emulate users activity to measure ram usage
+
 const autocannon = require('/usr/local/lib/node_modules/autocannon')
 
 autocannon({

@@ -1,3 +1,5 @@
+import logRamUsage from '~/assets/js/helpers/log-ram-usage'
+
 export const state = () => ({
   // basic site data includes header, footer, locales etc.
   globalData: {},
@@ -20,8 +22,7 @@ export const getters = {
 
 export const actions = {
   async nuxtServerInit ({ dispatch, commit }, { req, res }) {
-    const ramMb = Math.round((process.memoryUsage().heapUsed / 1024 / 1024) * 100) / 100
-    console.log(`Node RAM usage: ${ramMb}mb`)
+    logRamUsage()
 
     commit('helpers/SET_USER_AGENT', JSON.parse(res.getHeaders()['parsed-user-agent']))
     commit('SET_ORIGIN', res.getHeaders()['origin'])
@@ -62,17 +63,17 @@ export const actions = {
       // load real API pageData
       const { data } = await this.$axios.get(page, { params: query })
 
-      // TODO: add multiple blocks (now onlu first)
+      // TODO: add multiple blocks (now only first)
       // fetch first items from dynamicDataUrl and merge with attributes
-      // for (const block of data.blocks) {
-      //   if (block.attributes.dynamicDataUrl) {
-      //     const { data } = await this.$axios.get(
-      //       block.attributes.dynamicDataUrl,
-      //       { params: { 'page': 1, 'per-page': 6 } }
-      //     )
-      //     block.attributes.initialDynamicItemsData = data
-      //   }
-      // }
+      for (const block of data.blocks) {
+        if (block.attributes.dynamicDataUrl) {
+          const { data } = await this.$axios.get(
+            block.attributes.dynamicDataUrl,
+            { params: { 'page': 1, 'per-page': 6 } }
+          )
+          block.attributes.initialDynamicItemsData = data
+        }
+      }
 
       commit('SET_PAGE_DATA', data)
       return data
