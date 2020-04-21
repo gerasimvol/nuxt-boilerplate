@@ -1,4 +1,4 @@
-import logRamUsage from '~/assets/js/helpers/log-ram-usage'
+import { logRamUsage } from '~/assets/js/helpers/log-ram-usage'
 
 export const state = () => ({
   // basic site data includes header, footer, locales etc.

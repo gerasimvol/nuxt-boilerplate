@@ -1,7 +1,7 @@
 import debounce from 'lodash/debounce'
 import throttle from 'lodash/throttle'
 import { vh, vhStatic } from '~/assets/js/helpers/custom-vh'
-import consoleEasterEgg from '~/assets/js/helpers/vintage-console'
+import consoleEasterEgg from '~/assets/js/helpers/console-easter-egg'
 import getScrollbarWidth from '~/assets/js/helpers/scrollbar-width'
 import { EventBus } from '~/plugins/universal/_event-bus'
 

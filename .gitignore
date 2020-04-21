@@ -8,7 +8,6 @@ dist
 
 .idea
 .vscode
-.env
 
 yarn-error.log
 
