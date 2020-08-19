@@ -1,7 +1,6 @@
 /**
  * Generate configuration
  * due to dynamic routes every page require to be in routes array
- * https://nuxtjs.org/api/configuration-generate
  */
 
 module.exports = {

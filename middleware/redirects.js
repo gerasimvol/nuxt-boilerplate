@@ -1,4 +1,4 @@
-import redirectToPath from '~/server/utils/path-for-redirect'
+import redirectToPath from '~/server_deprecated/utils/path-for-redirect'
 
 export default function ({ store: { getters }, route, params: { lang }, redirect }) {
   const defaultLocaleCode = _get(getters, 'getDefaultLocale.code', '')

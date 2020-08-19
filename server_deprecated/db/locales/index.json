@@ -1,0 +1,12 @@
+ [
+    {
+      "label": "EN",
+      "code": "en",
+      "default": false
+    },
+    {
+      "label": "UA",
+      "code": "uk",
+      "default": true
+    }
+]

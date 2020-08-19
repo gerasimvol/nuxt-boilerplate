@@ -1,6 +1,5 @@
 /**
  * Plugins configuration
- * https://nuxtjs.org/api/configuration-plugins
  */
 
 module.exports = [

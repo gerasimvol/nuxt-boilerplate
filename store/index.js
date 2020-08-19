@@ -24,34 +24,39 @@ export const actions = {
   async nuxtServerInit ({ dispatch, commit }, { req, res }) {
     logRamUsage()
 
-    commit('helpers/SET_USER_AGENT', JSON.parse(res.getHeaders()['parsed-user-agent']))
-    commit('SET_ORIGIN', res.getHeaders()['origin'])
-    await dispatch('fetchGlobalData')
+    // commit('helpers/SET_USER_AGENT', JSON.parse(res.getHeaders()['parsed-user-agent']))
+    // commit('SET_ORIGIN', res.getHeaders()['origin'])
+    // await dispatch('fetchGlobalData')
   },
 
 
   async fetchGlobalData ({ commit, dispatch, state }) {
+    console.log('ad')
+    // try {
+    // load real API globalData
+    // const { data } = await this.$axios.get('/global-data')
+    // commit('SET_GLOBAL_DATA', _get(data, ['attributes'], {}))
+    // } catch (realApiError) {
+    // if (process.env.FAKE_API_ENABLED === 'true') {
     try {
-      // load real API globalData
-      const { data } = await this.$axios.get('/global-data')
-      commit('SET_GLOBAL_DATA', _get(data, ['attributes'], {}))
-    } catch (realApiError) {
-      if (process.env.FAKE_API_ENABLED === 'true') {
-        try {
-          // load fake API globalData
-          const { data } = await this.$axios.get(`${state.origin}/fake-api/global-data`)
-          commit('SET_GLOBAL_DATA', data)
-        } catch (fakeApiError) {
-          console.dir(fakeApiError)
-        }
-      } else {
-        console.dir(realApiError)
-      }
+      // load fake API globalData
+      const { data } = await this.$axios.get('http://192.168.0.105:3030/fake-api/global-data')
+      console.log('data', data)
+      commit('SET_GLOBAL_DATA', data)
+    } catch (fakeApiError) {
+      console.dir(fakeApiError)
     }
+    // }
+    // else {
+    // console.dir(realApiError)
+    // }
+    // }
   },
 
 
-  async fetchPageData ({ commit, getters, state }, { params: { lang, level1, level2, level3 }, query }) {
+  async fetchPageData ({ commit, getters, dispatch, state }, { params: { lang, level1, level2, level3 }, query }) {
+    await dispatch('fetchGlobalData')
+
     if (lang && !getters.getLocales.some(locale => locale.code === lang)) {
       throw new Error('No such language')
     }
@@ -106,7 +111,8 @@ export const mutations = {
   },
 
   SET_ORIGIN (state, origin) {
-    state.origin = origin
+    // if last char is '/' - remove it
+    state.origin = origin.replace(/\/$/, '')
   },
 
   SET_IS_ERROR_PAGE (state, value) {

@@ -13,6 +13,7 @@ const options = require('./nuxt-config/_options')
 const plugins = require('./nuxt-config/_plugins')
 const render = require('./nuxt-config/_render')
 const router = require('./nuxt-config/_router')
+const serverMiddleware = require('./nuxt-config/_server-middleware')
 
 module.exports = {
   mode: 'universal',
@@ -25,5 +26,6 @@ module.exports = {
   ...options,
   plugins,
   render,
-  router
+  router,
+  serverMiddleware
 }

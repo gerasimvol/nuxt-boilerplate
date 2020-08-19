@@ -1,6 +1,5 @@
 /**
  * Global CSS files array
- * https://nuxtjs.org/api/configuration-css
  */
 
 module.exports = [

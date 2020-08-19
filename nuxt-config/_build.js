@@ -1,6 +1,5 @@
 /**
  * Additional build configurations & webpack config extension
- * https://nuxtjs.org/api/configuration-build
  */
 
 const path = require('path')

@@ -29,10 +29,10 @@ export default function ({ $axios, params: { lang }, store, app }) {
   $axios.onError(({ response }) => {
     console.error('Error caught in axios-interseptors.')
 
-    // if (!response) {
-    //   showErrorPage(500, 'No response')
-    //   return response
-    // }
+    if (!response) {
+      showErrorPage(500, 'No response')
+      return response
+    }
 
     if (process.env.FAKE_API_ENABLED !== 'true') {
       showErrorPage(response.status, 'real API error')

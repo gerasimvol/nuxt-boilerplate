@@ -1,6 +1,5 @@
 /**
  * vue-router configuration
- * https://nuxtjs.org/api/configuration-router
  */
 
 const langRegExp = '([a-z]{2})' // just take two letters ('uk', 'en' etc.)

@@ -1,0 +1,55 @@
+{
+  "lang": "en",
+  "header": {
+    "links": [
+      {"label": "/page-1", "url": "/en/page-1"},
+      {"label": "/page-2", "url": "/en/page-2"},
+      {"label": "/not-found", "url": "/en/asdasd"}
+    ]
+  },
+  "scripts": {
+    "head": {
+      "end": "<script>console.log('end head')</script>"
+    },
+    "body": {
+      "begin": "<script>console.log('begin body')</script>",
+      "end": "<script>console.log('end body')</script>"
+    }
+  },
+  "errors": {
+    "404": {
+      "title": "Not found",
+      "link": {
+        "label": "На главную",
+        "url": "/en"
+      },
+      "seo": {
+        "title": "Not found",
+        "description": "Page description",
+        "og": {
+          "title":  "OpenGraph Title",
+          "description":  "OpenGraph Title",
+          "image": "https://site.com/storage/og.png"
+        },
+        "robots": "noindex,nofollow"
+      }
+    },
+    "500": {
+      "title": "Unavailable",
+      "link": {
+        "label": "На главную",
+        "url": "/"
+      },
+      "seo": {
+        "title": "Unavailable",
+        "description": "Page description",
+        "og": {
+          "title":  "OpenGraph Title",
+          "description":  "OpenGraph Title",
+          "image": "https://site.com/storage/og.png"
+        },
+        "robots": "noindex,nofollow"
+      }
+    }
+  }
+}

@@ -1,9 +1,8 @@
-const storage = require('./storage')
-const redirects = require('./redirects')
-const extendHeaders = require('./extend-headers')
+const fs = require('fs')
+const folder = '/server/middleware/'
 
-module.exports = function (app) {
-  app.use(redirects)
-  app.use(storage)
-  app.use(extendHeaders)
-}
+export default fs.readdirSync(`.${folder}`)
+  .map(fileName => {
+    return /^_.*\.js$/.test(fileName) ? `~${folder}${fileName}` : null
+  })
+  .filter(fileName => !!fileName)

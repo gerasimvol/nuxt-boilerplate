@@ -1,6 +1,5 @@
 /**
  * Additional modules configuration
- * https://github.com/nuxt-community/modules
  */
 
 module.exports = [

@@ -1,6 +1,5 @@
 /**
  * SSR directives (only for html el, with components don't works)
- *
  */
 
 module.exports = {

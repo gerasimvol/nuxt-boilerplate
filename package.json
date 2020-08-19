@@ -4,7 +4,8 @@
   "description": "Nuxt.js starter kit",
   "private": true,
   "scripts": {
-    "dev": "backpack dev",
+    "dev_deprecated": "backpack dev",
+    "dev": "nuxt",
     "build": "nuxt build && backpack build",
     "start": "cross-env NODE_ENV=production node .nuxt/dist/main.js",
     "generate": "nuxt generate",
