@@ -32,7 +32,7 @@
     "koa": "^2.11.0",
     "koa-router": "^8.0.8",
     "lodash": "^4.17.15",
-    "nuxt": "^2.12.1",
+    "nuxt": "^3.4.3",
     "object-fit-images": "^3.2.4",
     "object-fit-videos": "^1.0.4",
     "to-pascal-case": "^1.0.0",
